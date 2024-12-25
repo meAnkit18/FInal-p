@@ -231,6 +231,127 @@
         max-width: 300px;
     }
 }
+.chat-widget {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            width: 360px;
+            height: 500px;
+            background-color: rgba(0, 0, 0, 0.9);
+            border-radius: 10px;
+            display: flex;
+            flex-direction: column;
+            z-index: 1000;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+            transform: translateY(460px);
+            transition: transform 0.3s ease;
+        }
+
+        .chat-widget.open {
+            transform: translateY(0);
+        }
+
+        .chat-header {
+            padding: 15px;
+            
+            background-color: #7700ff ;
+            color: white;
+            border-radius: 10px 10px 0 0;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .chat-header h3 {
+            margin: 0;
+            font-size: 1.1rem;
+        }
+
+        .chat-body {
+            flex-grow: 1;
+            padding: 15px;
+            overflow-y: auto;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .chat-message {
+            margin-bottom: 10px;
+            max-width: 80%;
+            padding: 10px;
+            border-radius: 15px;
+            line-height: 1.4;
+        }
+
+        .user-message {
+            background-color: #7700ff;
+            color: white;
+            align-self: flex-end;
+            border-bottom-right-radius: 5px;
+        }
+
+        .bot-message {
+            background-color: #333;
+            color: white;
+            align-self: flex-start;
+            border-bottom-left-radius: 5px;
+        }
+
+        .chat-input {
+            padding: 15px;
+            border-top: 1px solid #333;
+            display: flex;
+            gap: 10px;
+        }
+
+        .chat-input input {
+            flex-grow: 1;
+            padding: 10px;
+            border: 1px solid #333;
+            border-radius: 20px;
+            background-color: #222;
+            color: white;
+            outline: none;
+        }
+
+        .chat-input button {
+            padding: 10px 20px;
+            background-color: #7700ff;
+            color: white;
+            border: none;
+            border-radius: 20px;
+            cursor: pointer;
+            transition: background-color 0.2s;
+        }
+
+        .chat-input button:hover {
+            background-color: #7700ff;
+        }
+
+        .typing-indicator {
+            display: none;
+            align-self: flex-start;
+            background-color: #333;
+            color: white;
+            padding: 10px;
+            border-radius: 15px;
+            margin-bottom: 10px;
+        }
+
+        /* Smooth scrollbar */
+        .chat-body::-webkit-scrollbar {
+            width: 6px;
+        }
+
+        .chat-body::-webkit-scrollbar-track {
+            background: #222;
+        }
+
+        .chat-body::-webkit-scrollbar-thumb {
+            background: #444;
+            border-radius: 3px;
+        }
     </style>
 </head>
 <body>
@@ -277,6 +398,25 @@
             <!-- Movies will be populated by JavaScript -->
         </div>
     </section>
+
+    <div class="chat-widget" id="chatWidget">
+        <div class="chat-header" id="chatHeader">
+            <h3>AniKIET Assistant</h3>
+            <span id="toggleChat">▼</span>
+        </div>
+        <div class="chat-body" id="chatBody">
+            <div class="bot-message">
+                Hello! I'm your AniKIET assistant. How can I help you today?
+            </div>
+        </div>
+        <div class="typing-indicator" id="typingIndicator">
+            Assistant is typing...
+        </div>
+        <div class="chat-input">
+            <input type="text" id="userInput" placeholder="Type your message...">
+            <button id="sendMessage">Send</button>
+        </div>
+    </div>
 
     <script>
         // Navbar scroll effect
@@ -380,6 +520,93 @@
                 displayMovies(filteredMovies);
             });
         });
+        const chatWidget = document.getElementById('chatWidget');
+        const chatHeader = document.getElementById('chatHeader');
+        const chatBody = document.getElementById('chatBody');
+        const userInput = document.getElementById('userInput');
+        const sendButton = document.getElementById('sendMessage');
+        const toggleChat = document.getElementById('toggleChat');
+        const typingIndicator = document.getElementById('typingIndicator');
+
+        // Toggle chat widget
+        chatHeader.addEventListener('click', () => {
+            chatWidget.classList.toggle('open');
+            toggleChat.textContent = chatWidget.classList.contains('open') ? '▼' : '▲';
+        });
+
+        // Send message function
+        function sendMessage() {
+            const message = userInput.value.trim();
+            if (message) {
+                // Add user message
+                addMessage(message, 'user');
+                userInput.value = '';
+
+                // Show typing indicator
+                typingIndicator.style.display = 'block';
+
+                // Simulate bot response after a delay
+                setTimeout(() => {
+                    getBotResponse(message);
+                }, 1000);
+            }
+        }
+
+        // Add message to chat
+        function addMessage(text, sender) {
+            const messageDiv = document.createElement('div');
+            messageDiv.classList.add('chat-message');
+            messageDiv.classList.add(sender === 'user' ? 'user-message' : 'bot-message');
+            messageDiv.textContent = text;
+            chatBody.appendChild(messageDiv);
+            chatBody.scrollTop = chatBody.scrollHeight;
+        }
+
+        // Get bot response
+        function getBotResponse(userMessage) {
+            // Simple response logic - you can expand this
+            const responses = {
+                'hello': 'Hi there! How can I help you with AniKIET today?',
+                'hi': 'Hello! What can I assist you with?',
+                'help': 'I can help you with: \n- Movie recommendations\n- Technical support\n- Account issues\n- Finding specific content\nWhat do you need help with?',
+                'movies': 'What kind of movies do you enjoy? I can recommend some Iron Man, Three Idiots, Spider Man, Jawan',
+                'recommend': 'I\'d be happy to recommend something! What genres do you prefer?',
+                'price': 'AniKIET offers several plans starting from 100 Cr/month. Would you like to know more about our pricing?',
+                'account': 'I can help you with account-related questions. What specific information do you need?',
+                'bye': 'Goodbye! Enjoy watching AniKIET!',
+                'thanks': 'You\'re welcome! Let me know if you need anything else.',
+                'thank you': 'You\'re welcome! Let me know if you need anything else.'
+            };
+
+            // Hide typing indicator
+            typingIndicator.style.display = 'none';
+
+            // Check for matching keywords
+            const messageLower = userMessage.toLowerCase();
+            let response = 'I\'m not sure how to help with that. Could you try ask me my Syllabus prompt 🗿?';
+
+            for (const [key, value] of Object.entries(responses)) {
+                if (messageLower.includes(key)) {
+                    response = value;
+                    break;
+                }
+            }
+
+            addMessage(response, 'bot');
+        }
+
+        // Event listeners
+        sendButton.addEventListener('click', sendMessage);
+        userInput.addEventListener('keypress', (e) => {
+            if (e.key === 'Enter') {
+                sendMessage();
+            }
+        });
+
+        // Initial chat state
+        setTimeout(() => {
+            chatWidget.classList.add('open');
+        }, 1000);
     </script>
 </body>
 </html>
