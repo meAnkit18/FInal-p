@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Netflix Clone</title>
+    <title>AniKIET</title>
     <script>
         alert("Make Sure You Are 15+");
     </script>
@@ -20,7 +20,7 @@
             color: white;
         }
 
-        /* Previous styles remain the same */
+        
         .navbar {
             padding: 20px 40px;
             position: fixed;
@@ -56,7 +56,7 @@
             font-size: 0.9rem;
         }
 
-        /* Hero Section */
+        
         .hero {
             height: 100vh;
             background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)),
@@ -71,7 +71,7 @@
             max-width: 650px;
         }
 
-        /* New Filter Styles */
+        
         .filter-section {
             padding: 20px 40px;
             /* margin-top: 20px; */
@@ -107,7 +107,7 @@
             background-color: #ffffff;
         }
 
-        /* Existing styles remain the same */
+       
         .movies-section {
             padding: 20px 40px;
         }
@@ -178,7 +178,7 @@
                 font-size: 0.9rem;
             }
         }
-        /* Hero Section Buttons */
+        
 .hero-buttons {
     display: flex;
     gap: 15px;
@@ -217,7 +217,7 @@
     background-color: rgba(109, 109, 110, 0.4);
 }
 
-/* Mobile responsiveness */
+
 @media (max-width: 768px) {
     .hero-buttons {
         flex-direction: column;
@@ -339,7 +339,7 @@
             margin-bottom: 10px;
         }
 
-        /* Smooth scrollbar */
+        
         .chat-body::-webkit-scrollbar {
             width: 6px;
         }
@@ -387,6 +387,19 @@
     border-radius: 5px;
     cursor: pointer;
 }
+.aabutton{
+    border: 0;
+    outline: 0;
+    background: #7700ff;
+    color: #fff;
+    padding: 7px 20px;
+    font-size: 12px;
+    border-radius: 4px;
+    margin-left: 10px;
+    cursor: pointer;
+    /* #db0001 */
+    
+}
     </style>
 </head>
 <body>
@@ -397,6 +410,7 @@
             <a href="#">TV Shows</a>
             <a href="#">Movies</a>
             <a href="#">New & Popular</a>
+            <a href="about.html"><button class="aabutton">My Profile</button></a>
         </div>
     </nav>
 
@@ -430,7 +444,7 @@
     <section class="movies-section">
         <h2 class="section-title">Suggestions</h2>
         <div class="movies-grid" id="moviesGrid">
-            <!-- Movies will be populated by JavaScript -->
+          
         </div>
     </section>
 
@@ -464,7 +478,7 @@
     </div>
 
     <script>
-        // Navbar scroll effect
+        
         window.addEventListener('scroll', () => {
             const navbar = document.querySelector('.navbar');
             if (window.scrollY > 50) {
@@ -474,9 +488,104 @@
             }
         });
 
-        // Updated movie data with genres
+        
         const movies = [
             { 
+                title: 'Iron Man', 
+                rating: '98% Match', 
+                image: 'https://rukminim2.flixcart.com/image/850/1000/j81xsi80/poster/c/z/n/large-iron-man-3-movie-on-fine-art-paper-on-24x36-large-poster-original-imaerxze7vebfxzs.jpeg?q=90&crop=false',
+                genres: ['action', 'scifi']
+            },
+            { 
+                title: 'Doctor Strange', 
+                rating: '95% Match', 
+                image: 'https://render.fineartamerica.com/images/rendered/default/poster/6/8/break/images/artworkimages/medium/3/doctor-strange-kal-spero.jpg',
+                genres: ['fantasy', 'action']
+            },
+            { 
+                title: 'Last Of Us', 
+                rating: '92% Match', 
+                image: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSTg7d839YXP6jefaOVHd-Zvg62WwioOFes7A&s',
+                genres: ['action', 'drama']
+            },
+            { 
+                title: 'Joker', 
+                rating: '90% Match', 
+                image: 'https://rukminim2.flixcart.com/image/850/1000/k9u8zgw0/poster/4/s/z/large-joker-wall-posters-for-bedroom-living-room-office-pr-pos-original-imafrjq3zzttgfht.jpeg?q=90&crop=false',
+                genres: ['drama', 'thriller']
+            },
+            { 
+                title: 'Spider-Man', 
+                rating: '88% Match', 
+                image: 'https://rukminim2.flixcart.com/image/850/1000/jqwny4w0/poster/s/v/u/medium-spider-man-11-spider-man-poster-for-room-office-13-inch-x-original-imafctjenprfatgh.jpeg?q=20&crop=false',
+                genres: ['action', 'scifi']
+            },
+            { 
+                title: 'Game of Thrones', 
+                rating: '85% Match', 
+                image: 'https://hips.hearstapps.com/hmg-prod/images/gt8-key-fb-9x16-jon-snow-1551376578.jpg?crop=1xw:1xh;center,top&resize=980:*',
+                genres: ['fantasy', 'drama']
+            },
+            { 
+                title: 'Three Idiots', 
+                rating: '82% Match', 
+                image: 'https://resizing.flixster.com/-XZAfHZM39UwaGJIFWKAE8fS0ak=/v3/t/assets/p7951929_p_v8_aa.jpg',
+                genres: ['scifi', 'thriller']
+            },
+            { 
+                title: 'Jawan', 
+                rating: '80% Match', 
+                image: 'https://reviewpuram.in/wp-content/uploads/2023/09/Jawan.jpg',
+                genres: ['action', 'thriller']
+            },
+            { 
+                title: 'Iron Man', 
+                rating: '98% Match', 
+                image: 'https://rukminim2.flixcart.com/image/850/1000/j81xsi80/poster/c/z/n/large-iron-man-3-movie-on-fine-art-paper-on-24x36-large-poster-original-imaerxze7vebfxzs.jpeg?q=90&crop=false',
+                genres: ['action', 'scifi']
+            },
+            { 
+                title: 'Doctor Strange', 
+                rating: '95% Match', 
+                image: 'https://render.fineartamerica.com/images/rendered/default/poster/6/8/break/images/artworkimages/medium/3/doctor-strange-kal-spero.jpg',
+                genres: ['fantasy', 'action']
+            },
+            { 
+                title: 'Last Of Us', 
+                rating: '92% Match', 
+                image: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSTg7d839YXP6jefaOVHd-Zvg62WwioOFes7A&s',
+                genres: ['action', 'drama']
+            },
+            { 
+                title: 'Joker', 
+                rating: '90% Match', 
+                image: 'https://rukminim2.flixcart.com/image/850/1000/k9u8zgw0/poster/4/s/z/large-joker-wall-posters-for-bedroom-living-room-office-pr-pos-original-imafrjq3zzttgfht.jpeg?q=90&crop=false',
+                genres: ['drama', 'thriller']
+            },
+            { 
+                title: 'Spider-Man', 
+                rating: '88% Match', 
+                image: 'https://rukminim2.flixcart.com/image/850/1000/jqwny4w0/poster/s/v/u/medium-spider-man-11-spider-man-poster-for-room-office-13-inch-x-original-imafctjenprfatgh.jpeg?q=20&crop=false',
+                genres: ['action', 'scifi']
+            },
+            { 
+                title: 'Game of Thrones', 
+                rating: '85% Match', 
+                image: 'https://hips.hearstapps.com/hmg-prod/images/gt8-key-fb-9x16-jon-snow-1551376578.jpg?crop=1xw:1xh;center,top&resize=980:*',
+                genres: ['fantasy', 'drama']
+            },
+            { 
+                title: 'Three Idiots', 
+                rating: '82% Match', 
+                image: 'https://resizing.flixster.com/-XZAfHZM39UwaGJIFWKAE8fS0ak=/v3/t/assets/p7951929_p_v8_aa.jpg',
+                genres: ['scifi', 'thriller']
+            },
+            { 
+                title: 'Jawan', 
+                rating: '80% Match', 
+                image: 'https://reviewpuram.in/wp-content/uploads/2023/09/Jawan.jpg',
+                genres: ['action', 'thriller']
+            },{ 
                 title: 'Iron Man', 
                 rating: '98% Match', 
                 image: 'https://rukminim2.flixcart.com/image/850/1000/j81xsi80/poster/c/z/n/large-iron-man-3-movie-on-fine-art-paper-on-24x36-large-poster-original-imaerxze7vebfxzs.jpeg?q=90&crop=false',
@@ -526,10 +635,10 @@
             }
         ];
 
-        // Function to display movies
+       
         function displayMovies(filteredMovies) {
             const moviesGrid = document.getElementById('moviesGrid');
-            moviesGrid.innerHTML = ''; // Clear existing movies
+            moviesGrid.innerHTML = ''; 
             
             filteredMovies.forEach(movie => {
                 const movieCard = document.createElement('div');
@@ -545,18 +654,18 @@
             });
         }
 
-        // Initial display of all movies
+        
         displayMovies(movies);
 
-        // Filter functionality
+        
         const filterButtons = document.querySelectorAll('.filter-button');
         filterButtons.forEach(button => {
             button.addEventListener('click', () => {
-                // Update active button
+                
                 filterButtons.forEach(btn => btn.classList.remove('active'));
                 button.classList.add('active');
 
-                // Filter movies
+                
                 const selectedGenre = button.getAttribute('data-genre');
                 const filteredMovies = selectedGenre === 'all' 
                     ? movies 
@@ -573,31 +682,31 @@
         const toggleChat = document.getElementById('toggleChat');
         const typingIndicator = document.getElementById('typingIndicator');
 
-        // Toggle chat widget
+        
         chatHeader.addEventListener('click', () => {
             chatWidget.classList.toggle('open');
             toggleChat.textContent = chatWidget.classList.contains('open') ? '▼' : '▲';
         });
 
-        // Send message function
+        
         function sendMessage() {
             const message = userInput.value.trim();
             if (message) {
-                // Add user message
+                
                 addMessage(message, 'user');
                 userInput.value = '';
 
-                // Show typing indicator
+                
                 typingIndicator.style.display = 'block';
 
-                // Simulate bot response after a delay
+                
                 setTimeout(() => {
                     getBotResponse(message);
                 }, 1000);
             }
         }
 
-        // Add message to chat
+        
         function addMessage(text, sender) {
             const messageDiv = document.createElement('div');
             messageDiv.classList.add('chat-message');
@@ -607,9 +716,9 @@
             chatBody.scrollTop = chatBody.scrollHeight;
         }
 
-        // Get bot response
+        
         function getBotResponse(userMessage) {
-            // Simple response logic - you can expand this
+            
             const responses = {
                 'hello': 'Hi there! How can I help you with AniKIET today?',
                 'hi': 'Hello! What can I assist you with?',
@@ -621,13 +730,115 @@
                 'bye': 'Goodbye! Enjoy watching AniKIET!',
                 'thanks': 'You\'re welcome! Let me know if you need anything else.',
                 'thank you': 'You\'re welcome! Let me know if you need anything else.',
-                'developer': 'Hello, I’m Ankit Kumar, a passionate Computer Science student at KIET Ghaziabad, an aspiring software engineer, and a creative thinker. From developing innovative web projects to exploring the endless possibilities of AI and IoT, I thrive on turning ideas into reality!'
+                'developer': 'Hello, I’m Ankit Kumar, a passionate Computer Science student at KIET Ghaziabad, an aspiring software engineer, and a creative thinker. From developing innovative web projects to exploring the endless possibilities of AI and IoT, I thrive on turning ideas into reality!',
+                'hentai': 'Bakkkkkkkkkkkkkkkk MC',
+                
+                'stepmommy': 'bhakk bsdk',
+                'milf hentai': 'ghand mara',
+                'milena hicks': 'mumalalo mera',
+                'regan fox': ' Transformers hai porn nahi hai madarchod',
+                'anime': 'anime cartoon nahi madaerchod',
+                'hentai': 'Bakkkkkkkkkkkkkkkk MC',
+                'hentai': 'Bakkkkkkkkkkkkkkkk MC',
+                'hello': 'Hi there! How can I help you with AniKIET today?',
+    'hi': 'Hello! What can I assist you with?',
+    'help': 'I can help you with: \n- Movie recommendations\n- Technical support\n- Account issues\n- Finding specific content\nWhat do you need help with?',
+    'movies': 'What kind of movies do you enjoy? I can recommend some like Iron Man, Three Idiots, Spider Man, Jawan.',
+    'recommend': 'I\'d be happy to recommend something! What genres do you prefer?',
+    'price': 'AniKIET offers several plans starting from 100 Cr/month. Would you like to know more about our pricing?',
+    'account': 'I can help you with account-related questions. What specific information do you need?',
+    'bye': 'Goodbye! Enjoy watching AniKIET!',
+    'thanks': 'You\'re welcome! Let me know if you need anything else.',
+    'thank you': 'You\'re welcome! Let me know if you need anything else.',
+    'developer': 'Hello, I’m Ankit Kumar, a passionate Computer Science student at KIET Ghaziabad, an aspiring software engineer, and a creative thinker. From developing innovative web projects to exploring the endless possibilities of AI and IoT, I thrive on turning ideas into reality!',
+    'popular movies': 'Currently trending movies: Avatar: The Way of Water, Oppenheimer, Barbie, and Dune.',
+    'action movies': 'Check out these action-packed hits: Mad Max: Fury Road, John Wick, and Mission Impossible!',
+    'romantic movies': 'You might enjoy: Titanic, The Notebook, and Crazy Rich Asians.',
+    'funny movies': 'Some great comedies include: The Hangover, Superbad, and 3 Idiots.',
+    'horror movies': 'If you like scares, try: The Conjuring, It, or A Quiet Place.',
+    'upcoming movies': 'Upcoming releases include: Deadpool 3, Aquaman 2, and Wonka!',
+    'bollywood': 'Bollywood classics: Dilwale Dulhania Le Jayenge, Sholay, and Lagaan.',
+    'hollywood': 'Hollywood blockbusters: Inception, The Dark Knight, and Avengers: Endgame.',
+    'anime': 'I recommend these anime movies: Your Name, Spirited Away, and Attack on Titan: The Movie.',
+    'recommend for kids': 'Perfect for kids: Toy Story, Finding Nemo, and Frozen.',
+    'family movies': 'Watch these with your family: The Lion King, Coco, and Home Alone.',
+    'sci-fi movies': 'Explore these sci-fi wonders: Interstellar, Blade Runner 2049, and Dune.',
+    'historical movies': 'Historical dramas: Schindler\'s List, Gandhi, and The King\'s Speech.',
+    'classic movies': 'Timeless classics: Casablanca, The Godfather, and Gone with the Wind.',
+    'thriller movies': 'Keep the suspense alive with: Seven, Fight Club, and Gone Girl.',
+    'feel-good movies': 'Feel-good recommendations: Forrest Gump, The Pursuit of Happyness, and Zindagi Na Milegi Dobara.',
+    'random': 'How about this one: The Matrix? It\'s always a good choice!',
+    'sad movies': 'For an emotional rollercoaster: Marley & Me, The Fault in Our Stars, and Dear Zindagi.',
+    'new releases': 'Recent releases include: The Marvels, Killers of the Flower Moon, and The Creator.',
+    'sports movies': 'Sports fans will love: Rocky, Remember the Titans, and Chak De! India.',
+    'help me': 'Sure! What do you need help with? AniKIET is here for you.',
+    'search': 'What would you like to search for? Let me know, and I\'ll assist you.',
+    'playlist': 'Create your movie playlist with your favorites. I can help you get started!',
+    'recommend genre': 'Sure, tell me your mood, and I\'ll suggest a genre!',
+    'trending': 'Trending now on AniKIET: Barbie, Jawan, and Spider-Man: No Way Home.',
+    'exclusive': 'AniKIET exclusives include amazing titles you won’t find anywhere else!',
+    'watch later': 'Add movies to your Watch Later list so you don’t forget them!',
+    'bot': 'I am your AniKIET Assistant, ready to make your streaming experience amazing!',
+    'favorite': 'Your favorites are always available under My List on AniKIET.',
+    'login': 'To log in, use your registered email or phone number. Need help resetting your password?',
+    'settings': 'Manage your account settings and preferences here.',
+    'feedback': 'We love to hear your feedback! How can AniKIET improve?',
+    'bye-bye': 'See you soon! Enjoy your movies!',
+
+    
+    'inception': 'A mind-bending thriller directed by Christopher Nolan, exploring dreams within dreams and the power of the subconscious.',
+    'avatar': 'A visually stunning sci-fi epic by James Cameron about a human’s journey to protect the alien world of Pandora.',
+    'titanic': 'A timeless love story set against the tragic sinking of the Titanic, directed by James Cameron.',
+    'interstellar': 'A visually stunning journey through space and time, directed by Christopher Nolan, exploring love and survival.',
+    'jawan': 'A high-octane Bollywood action thriller starring Shah Rukh Khan, combining intense action with social messages.',
+    'spider-man': 'Follow the adventures of Peter Parker as he becomes Spider-Man and battles villains while balancing his personal life.',
+    'three idiots': 'A heartwarming Bollywood comedy about friendship, education, and following your dreams, starring Aamir Khan.',
+    'dune': 'An epic sci-fi saga set on a desert planet, following a young hero’s journey to fulfill his destiny, directed by Denis Villeneuve.',
+    'oppenheimer': 'A gripping biopic by Christopher Nolan about the father of the atomic bomb and the moral dilemmas of scientific discovery.',
+    'joker': 'An intense psychological drama about the transformation of a troubled man into Gotham’s infamous villain.',
+    'the batman': 'A gritty take on the Dark Knight, focusing on Batman’s detective skills and his fight against corruption in Gotham.',
+    'barbie': 'A playful and heartfelt movie exploring identity, empowerment, and what it means to be yourself.',
+    'the godfather': 'A cinematic masterpiece about a powerful mafia family, exploring loyalty, power, and betrayal.',
+    'sholay': 'A Bollywood classic about friendship and revenge, featuring iconic characters and unforgettable dialogues.',
+    'parasite': 'A darkly comedic thriller about class inequality, where a poor family infiltrates a wealthy household with unexpected consequences.',
+    'the matrix': 'A groundbreaking sci-fi film about reality, control, and rebellion, featuring spectacular action sequences.',
+    'mad max': 'An action-packed post-apocalyptic tale of survival, directed by George Miller.',
+    'the conjuring': 'A chilling horror movie based on true events, following paranormal investigators tackling a haunted house.',
+    'your name': 'A beautiful anime movie about two strangers connected through time and space by an extraordinary bond.',
+    'spirited away': 'An enchanting Studio Ghibli film about a young girl’s journey through a magical world to rescue her parents.',
+    'toy story': 'A delightful Pixar film about the secret lives of toys and the value of friendship.',
+    'the pursuit of happyness': 'An inspiring true story of a father’s determination to build a better life for his son, starring Will Smith.',
+    'forrest gump': 'A heartwarming tale of an extraordinary man whose simple life profoundly impacts those around him.',
+    'rocky': 'An underdog story of a boxer’s rise to fame, showcasing determination and the power of belief.',
+    'lagaan': 'A Bollywood epic about villagers who challenge British rulers to a game of cricket to win their freedom.',
+    'schindler’s list': 'A poignant tale of a businessman who saved hundreds of Jews during the Holocaust, directed by Steven Spielberg.',
+    'iron man': 'The origin story of Tony Stark, a genius billionaire who becomes the armored superhero Iron Man.',
+    'black panther': 'A Marvel superhero film about T’Challa, the king of Wakanda, as he fights to protect his people and legacy.',
+    'frozen': 'A magical Disney story about two sisters, Elsa and Anna, and their journey of love and self-discovery.',
+    'zindagi na milegi dobara': 'A Bollywood film about friendship, adventure, and self-discovery during a bachelor trip to Spain.',
+    'jurassic park': 'A thrilling sci-fi adventure about a theme park with cloned dinosaurs that goes horribly wrong.',
+    'fight club': 'A gripping drama exploring themes of consumerism, identity, and chaos, starring Brad Pitt and Edward Norton.',
+    'deadpool': 'A hilarious and action-packed Marvel movie about a sarcastic anti-hero seeking revenge.',
+    'harry potter': 'Follow the magical journey of a young wizard, Harry Potter, as he battles the dark wizard Voldemort.',
+    'lord of the rings': 'An epic fantasy trilogy about the quest to destroy the One Ring and save Middle-earth.',
+    'the lion king': 'A Disney classic about a lion cub, Simba, who must embrace his destiny as king of the Pride Lands.',
+    'a quiet place': 'A chilling horror movie where a family struggles to survive in a world overrun by sound-sensitive creatures.',
+    'drishyam': 'An edge-of-your-seat Indian thriller about a man who outwits the law to protect his family.',
+    'edge of tomorrow': 'A sci-fi action film where a soldier relives the same day to fight an alien invasion and change the outcome.',
+    'pk': 'A Bollywood comedy-drama about an alien who questions social norms and religious superstitions on Earth.',
+    'bahubali': 'An Indian epic about a hero’s journey of courage, loyalty, and his rightful claim to the throne.',
+    'kung fu panda': 'An animated comedy about a clumsy panda who becomes a kung fu master and saves his valley.',
+    'zootopia': 'A witty Disney film about a rabbit cop and a fox con artist solving a mystery in a bustling animal city.',
+
+
+                
+                
             };
 
-            // Hide typing indicator
+            
             typingIndicator.style.display = 'none';
 
-            // Check for matching keywords
+            
             const messageLower = userMessage.toLowerCase();
             let response = 'I\'m not sure how to help with that. Could you try ask me my Syllabus prompt 🗿?';
 
@@ -641,7 +852,7 @@
             addMessage(response, 'bot');
         }
 
-        // Event listeners
+        
         sendButton.addEventListener('click', sendMessage);
         userInput.addEventListener('keypress', (e) => {
             if (e.key === 'Enter') {
@@ -649,7 +860,7 @@
             }
         });
 
-        // Initial chat state
+        
         setTimeout(() => {
             chatWidget.classList.add('open');
         }, 1000);
@@ -671,7 +882,7 @@ closeVideo.addEventListener('click', () => {
     document.body.style.overflow = 'auto';
 });
 
-// Optional: Close video on Escape key
+
 document.addEventListener('keydown', (e) => {
     if (e.key === 'Escape' && videoPlayer.classList.contains('active')) {
         closeVideo.click();
