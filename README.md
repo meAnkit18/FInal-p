@@ -1,4 +1,4 @@
-This is a static landing page I created for an anime and movie streaming platform as part of my college project. 🎥🍿 As a beginner in web development, this project was all about learning and experimenting with frontend design. It's not perfect, but every step taught me something new! Feedback and suggestions are welcome as I continue to improve.
+ This is a static landing page I created for an anime and movie streaming platform as part of my college project. 🎥🍿 As a beginner in web development, this project was all about learning and experimenting with frontend design. It's not perfect, but every step taught me something new! Feedback and suggestions are welcome as I continue to improve.
 
 Key features:
 
